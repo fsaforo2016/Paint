@@ -1,0 +1,145 @@
+using System.IO;
+using System;
+
+class PaintingAWall
+{
+    
+    public double NumberGallons(double width, double height, int coats, 
+     double areaOneGallon)
+      {
+         /* local variable declaration */
+         double wallArea=0.0;
+         double numGallons=0.0;
+         
+         wallArea = width * height;
+
+         numGallons = (wallArea/areaOneGallon)* coats;
+
+        
+         return numGallons ;
+      }
+    
+    
+    
+  
+
+static void Main()
+   {
+         /* local variable definition */
+         double width, height, areaOneGallon;
+         int coats;
+         string widthString, heightString, coatsString, areaOneGallonString;
+
+        
+     Console.WriteLine("Enter the width: ");
+      widthString = Console.ReadLine();
+      
+      bool isNumeric = double.TryParse(widthString, out width);
+      while (! isNumeric)
+      {
+          Console.WriteLine("Width should be a double!");
+          Console.WriteLine("Enter the width: ");
+           widthString = Console.ReadLine();
+           isNumeric = double.TryParse(widthString, out width);
+          
+         }
+      width = double.Parse(widthString);
+     
+      if (width <=0 )
+         {
+          Console.WriteLine("Width should be positive!");
+          return;
+         }
+
+
+    
+      Console.WriteLine("enter the height of the wall");
+      heightString = Console.ReadLine();
+      
+        isNumeric = double.TryParse(heightString, out height);
+       while (! isNumeric)
+       {
+          Console.WriteLine("Height should be a double!");
+          Console.WriteLine("Enter the height: ");
+           heightString = Console.ReadLine();
+           isNumeric = double.TryParse(heightString, out height);
+          
+        }
+      
+      
+      height = double.Parse(heightString);
+    
+       if (height <=0 )
+         {
+          Console.WriteLine("Height should be positive!");
+          return;
+         }
+         
+         
+         Console.WriteLine("enter the number of coats:");
+      coatsString = Console.ReadLine();
+      
+       
+      
+        isNumeric = int.TryParse(coatsString, out coats);
+       while (! isNumeric)
+       {
+          Console.WriteLine("Coats should be an int!");
+          Console.WriteLine("Enter the number of coats: ");
+           coatsString = Console.ReadLine();
+           isNumeric = int.TryParse(coatsString, out coats);
+          
+        }
+      
+      
+      
+      coats = int.Parse(coatsString);
+
+       if (coats <=0 )
+         {
+          Console.WriteLine("Coats should be a positive int!");
+          return;
+         }
+      Console.Write( "Enter surface area a gallon of paint will cover: ");
+      areaOneGallonString = Console.ReadLine();
+      
+       
+      
+        isNumeric = double.TryParse(areaOneGallonString, out areaOneGallon);
+       while (! isNumeric)
+       {
+          Console.WriteLine("Area should be a double!");
+          Console.WriteLine("Enter the area per gallon: ");
+           heightString = Console.ReadLine();
+           isNumeric = double.TryParse(areaOneGallonString, out areaOneGallon);
+          
+        }
+      
+      
+      
+      areaOneGallon = double.Parse(areaOneGallonString);
+
+      if (areaOneGallon <=0 )
+         {
+          Console.WriteLine("Coats should be a positive int!");
+          return;
+         }
+      
+      PaintingAWall n = new PaintingAWall();
+
+    double result = n.NumberGallons(width, height, coats, areaOneGallon);
+
+
+      
+
+      Console.WriteLine("For " + coats+ " on that wall, you will need: " + result+ "  gallons of paint");
+     
+
+    }
+    
+ }
+
+
+
+
+
